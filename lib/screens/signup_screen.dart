@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projetoacademia/providers/auth_signup_provider.dart';
 import 'package:projetoacademia/routes.dart';
 import 'package:provider/provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -97,10 +98,27 @@ class SignUpScreen extends StatelessWidget {
                     authSignupProvider.signUp(email, password).then(
                       (sucesso) {
                         if (sucesso) {
+                          Fluttertoast.showToast(
+                              msg: "Cadastro efetuado com sucesso!",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.blueAccent,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
                           Navigator.pushReplacementNamed(
                               context, Routes.SERIEA);
                         } else {
-                          //Mensegem de erro
+                          Fluttertoast.showToast(
+                              msg: "Cadastro Existente",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
                         }
                       },
                     );

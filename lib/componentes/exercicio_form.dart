@@ -3,6 +3,7 @@ import 'package:projetoacademia/routes.dart';
 import 'package:provider/provider.dart';
 import '../models/exercicio.dart';
 import '../providers/exerc_provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ExercicioForm extends StatelessWidget {
   ExercicioForm({super.key});
@@ -130,6 +131,16 @@ class ExercicioForm extends StatelessWidget {
                               Exercicio(nomeExercicio, repedicoes, peso);
 
                           addExerc(exerc);
+
+                          Fluttertoast.showToast(
+                              msg: "Exercício adicionado com sucesso!",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.blueAccent,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
 
                           Navigator.pushNamed(context, Routes.SERIEA);
                         },

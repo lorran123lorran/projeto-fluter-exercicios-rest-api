@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_signin_provider.dart';
 import '../routes.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
@@ -45,11 +46,15 @@ class SignInScreen extends StatelessWidget {
                     alignLabelWithHint: true,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30),
+                      ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30),
+                      ),
                     ),
                   ),
                 ),
@@ -74,11 +79,15 @@ class SignInScreen extends StatelessWidget {
                     alignLabelWithHint: true,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30),
+                      ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30),
+                      ),
                     ),
                   ),
                 ),
@@ -96,7 +105,28 @@ class SignInScreen extends StatelessWidget {
                     authSigninProvider.signIn(email, password).then(
                           (response) => {
                             if (response)
-                              Navigator.pushNamed(context, Routes.SERIEA)
+                              {
+                                Fluttertoast.showToast(
+                                    msg: "Login efetuado com sucesso!",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.blueAccent,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0),
+                                Navigator.pushNamed(context, Routes.SERIEA)
+                              }
+                            else
+                              {
+                                Fluttertoast.showToast(
+                                    msg: "Erro ao se logar, tente novamente!",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.red,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0),
+                              }
                           },
                         );
                   },

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../models/exercicio.dart';
 import '../providers/exerc_provider.dart';
 import '../routes.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class DetailsScreen extends StatefulWidget {
   DetailsScreen({super.key});
@@ -60,6 +61,15 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   onPressed: () {
                     exercProvider.deleteExerc(exerc);
 
+                    Fluttertoast.showToast(
+                        msg: "Exercício deletado com sucesso!",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.blueAccent,
+                        textColor: Colors.white,
+                        fontSize: 16.0
+                    );
                     Navigator.pushNamed(context, Routes.SERIEA);
                   },
                   icon: const Icon(
