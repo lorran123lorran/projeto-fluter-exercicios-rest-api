@@ -12,13 +12,15 @@ class FormScreenEdit extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Colors.blue.shade900,
-          title: const Text('Alterar sua Série'),
+          title: const Text('Alterar sua Série', style: TextStyle(color: Colors.white),),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ExercicioFormEdit(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ExercicioFormEdit(),
+            ],
+          ),
         ),
       ),
     );

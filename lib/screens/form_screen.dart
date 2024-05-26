@@ -14,11 +14,13 @@ class FormScreen extends StatelessWidget {
               backgroundColor: Colors.blue.shade900,
               title: const Text('Cadastre sua Série', style: TextStyle(color: Colors.white),),
             ),
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-    ExercicioForm(),
-              ],
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ExercicioForm(),
+                ],
+              ),
             ),
           );
   }

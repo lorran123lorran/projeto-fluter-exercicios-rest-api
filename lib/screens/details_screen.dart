@@ -37,63 +37,68 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              exerc.nomeExercicio,
-              style: const TextStyle(fontSize: 28, color: Colors.indigo),
-            ),
-            Text(
-              exerc.repeticoes,
-              style: const TextStyle(fontSize: 20, color: Colors.indigo),
-            ),
-            Text(
-              exerc.peso.toString(),
-              style: const TextStyle(fontSize: 20, color: Colors.indigo),
-            ),
-            Row(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SingleChildScrollView(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                  padding: EdgeInsets.all(50),
-                  onPressed: () {
-                    exercProvider.deleteExerc(exerc);
-
-                    Fluttertoast.showToast(
-                        msg: "Exercício deletado com sucesso!",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.blueAccent,
-                        textColor: Colors.white,
-                        fontSize: 16.0
-                    );
-                    Navigator.pushNamed(context, Routes.SERIEA);
-                  },
-                  icon: const Icon(
-                    Icons.delete,
-                    size: 35,
-                  ),
-                  color: Colors.red,
+                Text(
+                  exerc.nomeExercicio,
+                  style: const TextStyle(fontSize: 28, color: Colors.indigo),
                 ),
-                IconButton(
-                  padding: EdgeInsets.all(50),
-                  onPressed: () {
-                    Navigator.popAndPushNamed(context, Routes.EDITAR,
-                        arguments: exerc);
-                  },
-                  icon: const Icon(
-                    Icons.edit,
-                    size: 40,
-                  ),
-                  color: Colors.blueAccent,
+                Text(
+                  exerc.repeticoes,
+                  style: const TextStyle(fontSize: 20, color: Colors.indigo),
+                ),
+                Text(
+                  exerc.peso.toString(),
+                  style: const TextStyle(fontSize: 20, color: Colors.indigo),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      padding: EdgeInsets.all(50),
+                      onPressed: () {
+                        exercProvider.deleteExerc(exerc);
+
+                        Fluttertoast.showToast(
+                            msg: "Exercício deletado com sucesso!",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.blueAccent,
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                        );
+                        Navigator.pushNamed(context, Routes.SERIEA);
+                      },
+                      icon: const Icon(
+                        Icons.delete,
+                        size: 35,
+                      ),
+                      color: Colors.red,
+                    ),
+                    IconButton(
+                      padding: EdgeInsets.all(50),
+                      onPressed: () {
+                        Navigator.popAndPushNamed(context, Routes.EDITAR,
+                            arguments: exerc);
+                      },
+                      icon: const Icon(
+                        Icons.edit,
+                        size: 40,
+                      ),
+                      color: Colors.blueAccent,
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
