@@ -15,12 +15,6 @@ class _SerieAState extends State<SerieA> {
     super.initState();
   }
 
-  // @override
-  // void didUpdateWidget(covariant SerieA oldWidget) {
-  //   super.didUpdateWidget(oldWidget);
-  //
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

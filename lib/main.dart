@@ -4,6 +4,7 @@ import 'package:projetoacademia/providers/exerc_provider.dart';
 import 'package:projetoacademia/routes.dart';
 import 'package:projetoacademia/screens/details_screen.dart';
 import 'package:projetoacademia/screens/form_screen.dart';
+import 'package:projetoacademia/screens/form_screen_edit.dart';
 import 'package:projetoacademia/screens/serie_a.dart';
 import 'package:projetoacademia/screens/signin_screen.dart';
 import 'package:projetoacademia/screens/signup_screen.dart';
@@ -42,6 +43,7 @@ class MainApp extends StatelessWidget {
           Routes.FORM: (context) => FormScreen(),
           Routes.DETAILS: (context) => DetailsScreen(),
           Routes.EXERC_LISTA: (context) => ExercicioLista(),
+          Routes.EDITAR: (context) => FormScreenEdit(),
         },
       ),
     );

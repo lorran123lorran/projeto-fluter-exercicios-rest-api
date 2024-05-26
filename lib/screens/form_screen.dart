@@ -10,7 +10,12 @@ class FormScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Cadastre sua Série'),
       ),
-      body: ExercicioForm(),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ExercicioForm(),
+        ],
+      ),
     );
   }
 }

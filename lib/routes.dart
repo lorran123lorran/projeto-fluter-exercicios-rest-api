@@ -6,4 +6,5 @@ class Routes {
   static const DETAILS = "details_screen";
   static const EXERC_LISTA = "exercicio_lista";
   static const EXERC_LIST_TILE = "exercicio_lista_title";
+  static const EDITAR = "form_screen_edit";
 }

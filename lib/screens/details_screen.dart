@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/exercicio.dart';
+import '../providers/exerc_provider.dart';
 import '../routes.dart';
 
-class DetailsScreen extends StatelessWidget {
+class DetailsScreen extends StatefulWidget {
   DetailsScreen({super.key});
 
   @override
+  State<DetailsScreen> createState() => _DetailsScreenState();
+}
+
+class _DetailsScreenState extends State<DetailsScreen> {
+  @override
   Widget build(BuildContext context) {
     Exercicio exerc = ModalRoute.of(context)!.settings.arguments as Exercicio;
+
+    final exercProvider = context.watch<ExercProvider>();
 
     return Scaffold(
       backgroundColor: Colors.blue[200],
@@ -49,7 +58,9 @@ class DetailsScreen extends StatelessWidget {
                 IconButton(
                   padding: EdgeInsets.all(50),
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.FORM);
+                    exercProvider.deleteExerc(exerc);
+
+                    Navigator.pushNamed(context, Routes.SERIEA);
                   },
                   icon: const Icon(
                     Icons.delete,
@@ -60,7 +71,8 @@ class DetailsScreen extends StatelessWidget {
                 IconButton(
                   padding: EdgeInsets.all(50),
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.FORM);
+                    Navigator.popAndPushNamed(context, Routes.EDITAR,
+                        arguments: exerc);
                   },
                   icon: const Icon(
                     Icons.edit,
