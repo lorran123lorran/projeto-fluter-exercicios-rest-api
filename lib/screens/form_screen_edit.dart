@@ -6,15 +6,20 @@ class FormScreenEdit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Alterar sua Série'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ExercicioFormEdit(),
-        ],
+    return SizedBox(
+      child: Scaffold(
+        backgroundColor: Colors.blue,
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          backgroundColor: Colors.blue.shade900,
+          title: const Text('Alterar sua Série'),
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ExercicioFormEdit(),
+          ],
+        ),
       ),
     );
   }

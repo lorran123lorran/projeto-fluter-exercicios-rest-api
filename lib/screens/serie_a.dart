@@ -21,8 +21,13 @@ class _SerieAState extends State<SerieA> {
       backgroundColor: Colors.blue,
       appBar: AppBar(
         backgroundColor: Colors.blue[800],
-        title: const Text("Série A  -  Crie sua Série"),
+        title: const Text("Série A"),
         titleTextStyle: const TextStyle(color: Colors.white, fontSize: 25),
+        actions: [
+          IconButton(onPressed: (){
+          Navigator.pushNamed(context, Routes.FORM);
+          }, icon: const Icon(Icons.add_circle, color: Colors.white,))
+        ],
       ),
       body: const ExercicioLista(),
       drawer: Drawer(
