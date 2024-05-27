@@ -23,7 +23,8 @@ class SignInScreen extends StatelessWidget {
         title: const Text("Tela de Login"),
         titleTextStyle: const TextStyle(color: Colors.white, fontSize: 25),
       ),
-      body: SingleChildScrollView(
+      body:
+      SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
