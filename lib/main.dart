@@ -13,10 +13,10 @@ import 'package:flutter/material.dart';
 import 'componentes/exercicio_lista.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(_MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class _MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -39,11 +39,11 @@ class MainApp extends StatelessWidget {
         routes: {
           '/': (context) => SignInScreen(),
           Routes.SIGNUP: (context) => SignUpScreen(),
-          Routes.SERIEA: (context) => SerieA(),
-          Routes.FORM: (context) => FormScreen(),
+          Routes.SERIEA: (context) => const SerieA(),
+          Routes.FORM: (context) => const FormScreen(),
           Routes.DETAILS: (context) => DetailsScreen(),
-          Routes.EXERC_LISTA: (context) => ExercicioLista(),
-          Routes.EDITAR: (context) => FormScreenEdit(),
+          Routes.EXERC_LISTA: (context) => const ExercicioLista(),
+          Routes.EDITAR: (context) => const FormScreenEdit(),
         },
       ),
     );

@@ -30,6 +30,10 @@ class SignUpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
+                padding: const EdgeInsets.all(35.0),
+                child: Image.asset("assets/logo.png", height: 170,),
+              ),
+              Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
