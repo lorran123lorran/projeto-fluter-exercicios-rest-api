@@ -137,7 +137,7 @@ packages:
     source: sdk
     version: "0.0.0"
   fluttertoast:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: fluttertoast
       sha256: "81b68579e23fcbcada2db3d50302813d2371664afe6165bc78148050ab94bf66"
