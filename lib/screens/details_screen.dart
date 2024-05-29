@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import '../models/exercicio.dart';
 import '../providers/exerc_provider.dart';
 import '../routes.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class DetailsScreen extends StatefulWidget {
-  DetailsScreen({super.key});
+  const DetailsScreen({super.key});
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -30,7 +31,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pop(context, "21:51:15");
+              Navigator.pushNamed(context, Routes.CATALOG);
             },
             icon: const Icon(Icons.home),
             color: Colors.white,
@@ -60,7 +61,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      padding: EdgeInsets.all(50),
+                      padding: const EdgeInsets.all(50),
                       onPressed: () {
                         exercProvider.deleteExerc(exerc);
 
@@ -82,7 +83,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       color: Colors.red,
                     ),
                     IconButton(
-                      padding: EdgeInsets.all(50),
+                      padding: const EdgeInsets.all(50),
                       onPressed: () {
                         Navigator.popAndPushNamed(context, Routes.EDITAR,
                             arguments: exerc);

@@ -25,8 +25,11 @@ class _SerieAState extends State<SerieA> {
         titleTextStyle: const TextStyle(color: Colors.white, fontSize: 25),
         actions: [
           IconButton(onPressed: (){
-          Navigator.pushNamed(context, Routes.FORM);
-          }, icon: const Icon(Icons.add_circle, color: Colors.white,))
+          Navigator.pushNamed(context, Routes.CATALOG);
+          }, icon: const Icon(Icons.home, color: Colors.white, size: 25,),),
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, Routes.FORM);
+          }, icon: const Icon(Icons.add_circle, color: Colors.white, size: 25,))
         ],
       ),
       body: const ExercicioLista(),

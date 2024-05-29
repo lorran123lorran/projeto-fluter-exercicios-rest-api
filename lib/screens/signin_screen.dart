@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_signin_provider.dart';
 import '../routes.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
@@ -120,7 +121,7 @@ class SignInScreen extends StatelessWidget {
                                       backgroundColor: Colors.blueAccent,
                                       textColor: Colors.white,
                                       fontSize: 16.0),
-                                  Navigator.pushNamed(context, Routes.SERIEA)
+                                  Navigator.pushNamed(context, Routes.CATALOG)
                                 }
                               else
                                 {

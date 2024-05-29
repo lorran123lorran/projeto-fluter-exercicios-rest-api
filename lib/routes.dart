@@ -1,5 +1,6 @@
 class Routes {
   static const SIGNIN = "/";
+  static const CATALOG = "catalog_screen";
   static const SIGNUP = "signup_screen";
   static const SERIEA = "serie_a";
   static const FORM = "form_screen";

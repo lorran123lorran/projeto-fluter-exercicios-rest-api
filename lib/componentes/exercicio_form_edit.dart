@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:location/location.dart';
 import 'package:projetoacademia/routes.dart';
 import 'package:provider/provider.dart';
 import '../models/exercicio.dart';
 import '../providers/exerc_provider.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class ExercicioFormEdit extends StatelessWidget {
   ExercicioFormEdit({super.key});

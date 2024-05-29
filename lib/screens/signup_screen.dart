@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:projetoacademia/providers/auth_signup_provider.dart';
 import 'package:projetoacademia/routes.dart';
 import 'package:provider/provider.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
