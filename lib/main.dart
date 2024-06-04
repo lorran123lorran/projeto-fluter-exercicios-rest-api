@@ -12,9 +12,18 @@ import 'package:projetoacademia/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'componentes/exercicio_lista.dart';
+import 'package:sqflite/sqflite.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -41,11 +50,12 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
         routes: {
           '/': (context) => SignInScreen(),
+          Routes.SIGNIN: (context) => SignInScreen(),
           Routes.CATALOG: (context) => const CatalogScreen(),
           Routes.SIGNUP: (context) => SignUpScreen(),
           Routes.SERIEA: (context) => const SerieA(),
           Routes.FORM: (context) => const FormScreen(),
-          Routes.DETAILS: (context) => DetailsScreen(),
+          Routes.DETAILS: (context) => const DetailsScreen(),
           Routes.EXERC_LISTA: (context) => const ExercicioLista(),
           Routes.EDITAR: (context) => const FormScreenEdit(),
         },

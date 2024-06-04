@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../componentes/exercicio_lista.dart';
 import '../routes.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SerieA extends StatefulWidget {
   const SerieA({super.key});
@@ -74,6 +76,35 @@ class _SerieAState extends State<SerieA> {
               ),
               onTap: () {
                 Navigator.pushNamed(context, Routes.SERIEA);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.adjust,
+                color: Colors.white,
+                size: 30,
+              ),
+              title: const Text(
+                "Sair",
+                textAlign: TextAlign.start,
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              trailing: const Icon(
+                Icons.logout,
+                color: Colors.white,
+                size: 35,
+              ),
+              onTap: () {
+                FirebaseAuth.instance.signOut();
+                Fluttertoast.showToast(
+                    msg: "Logout efetuado com sucesso!",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.blueAccent,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+                Navigator.pushReplacementNamed(context, Routes.SIGNIN);
               },
             ),
           ],

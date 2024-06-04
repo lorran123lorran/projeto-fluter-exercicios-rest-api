@@ -14,7 +14,6 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthSignupProvider authSignupProvider = context.watch<AuthSignupProvider>();
-    String? message = authSignupProvider.messagesignup;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -102,30 +101,30 @@ class SignUpScreen extends StatelessWidget {
                       String email = emailController.text;
                       String password = passwordController.text;
                       authSignupProvider.signUp(email, password).then(
-                        (sucesso) {
-                          if (sucesso) {
-                            Fluttertoast.showToast(
-                                msg: "Cadastro efetuado com sucesso!",
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.BOTTOM,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: Colors.blueAccent,
-                                textColor: Colors.white,
-                                fontSize: 16.0
-                            );
-                            Navigator.pushReplacementNamed(
-                                context, Routes.SERIEA);
-                          } else {
-                            Fluttertoast.showToast(
-                                msg: "Cadastro Existente",
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.BOTTOM,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 16.0
-                            );
-                          }
+                            (response) => {
+                          if (response)
+                            {
+                              Fluttertoast.showToast(
+                                  msg: "Cadastro efetuado com sucesso!",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.blueAccent,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0),
+                              Navigator.pushNamed(context, Routes.CATALOG)
+                            }
+                          else
+                            {
+                              Fluttertoast.showToast(
+                                  msg: "Erro ao se cadastrar, tente novamente!",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0),
+                            }
                         },
                       );
                     },
@@ -136,16 +135,15 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              if (message != null) Text(message),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.SIGNIN);
+                  Navigator.pop(context, Routes.SIGNIN);
                 },
                 child: const Text(
-                  "Ja tenho cadastro",
+                  "Ja tenho cadastro.",
                   style: TextStyle(color: Colors.white, fontSize: 17),
                 ),
-              )
+              ),
             ],
           ),
         ),

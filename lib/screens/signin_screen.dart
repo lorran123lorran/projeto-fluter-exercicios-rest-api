@@ -15,7 +15,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthSigninProvider authSigninProvider = context.watch<AuthSigninProvider>();
-    String? messagesignin = authSigninProvider.messagesignin;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.blue,
@@ -144,8 +144,7 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              if (messagesignin != null) Text(messagesignin),
-              TextButton(
+               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, Routes.SIGNUP);
                 },
