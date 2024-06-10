@@ -10,12 +10,22 @@ class ExercicioLista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final exercProvider = context.watch<ExercProvider>();
-    final List<Exercicio>? listaExerc = exercProvider.exercicios;
+    // final exercicios = exercProvider.exercicios;
+    // final List<Exercicio> listaExerc = exercicios;
+    final List<Exercicio> listaExerc = exercProvider.exercicios;
+
+    if (listaExerc.isEmpty){
+      exercProvider.list();
+
+    }
+
+
+
     return ListView.builder(
-      itemCount: listaExerc?.length, // diz quantos itens tem na lista
+      itemCount: listaExerc.length, // diz quantos itens tem na lista
       itemBuilder: (context, index) {
         // Item Builder indica como vai renderizar os itens (contex indica o contexto e o index indica o index (item 1 para começar (startar a aplicação) e ambos precisam de um return
-        Exercicio exerc = listaExerc![index];
+        Exercicio exerc = listaExerc[index];
         return ExercicioListaTile(exerc);
       },
     );

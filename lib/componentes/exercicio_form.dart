@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:location/location.dart';
 import 'package:projetoacademia/routes.dart';
 import 'package:provider/provider.dart';
+import 'package:sqflite/sqflite.dart';
 import '../models/exercicio.dart';
 import '../providers/exerc_provider.dart';
 
@@ -56,7 +58,8 @@ class ExercicioForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final exercProvider = context.watch<ExercProvider>();
-    final addExerc = exercProvider.addExerc;
+    final insert = exercProvider.insert;
+    // final addExerc = exercProvider.addExerc;
 
     return Padding(
       padding: const EdgeInsets.all(15.0),
@@ -152,7 +155,8 @@ class ExercicioForm extends StatelessWidget {
 
                     final exerc = Exercicio(nomeExercicio, repedicoes, peso);
 
-                    addExerc(exerc);
+                    exercProvider.exercicios.clear;
+                    insert(exerc);
 
                     Fluttertoast.showToast(
                         msg: "Exercício adicionado com sucesso!",

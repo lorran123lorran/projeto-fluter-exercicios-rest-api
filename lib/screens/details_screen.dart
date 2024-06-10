@@ -63,7 +63,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     IconButton(
                       padding: const EdgeInsets.all(50),
                       onPressed: () {
-                        exercProvider.deleteExerc(exerc);
+                        exercProvider.delete(exerc);
 
                         Fluttertoast.showToast(
                             msg: "Exercício deletado com sucesso!",

@@ -56,7 +56,7 @@ class ExercicioFormEdit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final exercProvider = context.watch<ExercProvider>();
-    final addExerc = exercProvider.addExerc;
+    final insert = exercProvider.insert;
     Exercicio exerc = ModalRoute.of(context)!.settings.arguments as Exercicio;
 
     final nomeExercicioController =
@@ -153,7 +153,7 @@ class ExercicioFormEdit extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                   onPressed: () {
-                    exercProvider.deleteExerc(exerc);
+                    exercProvider.delete(exerc);
 
                     String nomeExercicio = nomeExercicioController.text;
                     String repeticoes = repeticoesController.text;
@@ -161,7 +161,7 @@ class ExercicioFormEdit extends StatelessWidget {
                     final exerc_new =
                         Exercicio(nomeExercicio, repeticoes, peso);
 
-                    addExerc(exerc_new);
+                    insert(exerc_new);
 
                     Fluttertoast.showToast(
                         msg: "Exercício editado com sucesso!",

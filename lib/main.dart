@@ -12,7 +12,6 @@ import 'package:projetoacademia/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'componentes/exercicio_lista.dart';
-import 'package:sqflite/sqflite.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 
