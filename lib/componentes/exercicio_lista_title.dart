@@ -26,10 +26,9 @@ class _ExercicioListaTileState extends State<ExercicioListaTile> {
     String repeticoes = widget.exerc.repeticoes;
     int peso = widget.exerc.peso;
 
-    return Container(
-      color: Colors.blue,
-      padding: const EdgeInsets.all(7),
+    return SizedBox(
       child: Card(
+        margin: const EdgeInsets.fromLTRB(25, 25, 25, 0),
         child: ListTile(
           leading: Text(
             "$peso kg",
@@ -40,18 +39,36 @@ class _ExercicioListaTileState extends State<ExercicioListaTile> {
             style: const TextStyle(color: Colors.red),
           ),
           subtitle: Text(repeticoes),
+
+          //
+
           trailing: Switch(
               value: status,
-              onChanged: itemSwitch,
+              onChanged: (value) => setState(
+                  () => status = value,
+              ),
               inactiveTrackColor: Colors.redAccent.shade100,
               inactiveThumbColor: Colors.red,
               activeColor: Colors.green.shade600),
           onTap: () {
             Navigator.pushNamed(context, Routes.DETAILS,
                 arguments: widget.exerc);
+
+            //
           },
         ),
       ),
     );
   }
 }
+
+
+//Switch(
+//               value: status,
+//               onChanged: itemSwitch,
+//               inactiveTrackColor: Colors.redAccent.shade100,
+//               inactiveThumbColor: Colors.red,
+//               activeColor: Colors.green.shade600),
+//           onTap: () {
+//             Navigator.pushNamed(context, Routes.DETAILS,
+//                 arguments: widget.exerc);

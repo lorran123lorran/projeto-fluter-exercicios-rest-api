@@ -9,6 +9,8 @@ class ExercProvider extends ChangeNotifier {
 
   List<Exercicio> exercicios = [];
 
+
+
   // void addExerc(Exercicio exerc) {
   //   exercicios.add(exerc);
   //   notifyListeners();
@@ -38,6 +40,7 @@ class ExercProvider extends ChangeNotifier {
         String id = doc.id;
         exerc.id = id;
         exercicios.add(exerc);
+        exercicios.clear();
         notifyListeners();
       }
       );
@@ -49,7 +52,7 @@ class ExercProvider extends ChangeNotifier {
         exercicios.remove(exerc);
         notifyListeners();
       },
-      );
+     );
     }
 
 

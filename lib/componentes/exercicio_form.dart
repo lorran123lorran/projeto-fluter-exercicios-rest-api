@@ -153,7 +153,6 @@ class ExercicioForm extends StatelessWidget {
 
                     final exerc = Exercicio(nomeExercicio, repedicoes, peso);
 
-                    exercProvider.exercicios.clear;
                     insert(exerc);
 
                     Fluttertoast.showToast(

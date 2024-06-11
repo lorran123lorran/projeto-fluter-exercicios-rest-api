@@ -14,12 +14,11 @@ class ExercicioLista extends StatelessWidget {
     // final List<Exercicio> listaExerc = exercicios;
     final List<Exercicio> listaExerc = exercProvider.exercicios;
 
+
+
     if (listaExerc.isEmpty){
       exercProvider.list();
-
     }
-
-
 
     return ListView.builder(
       itemCount: listaExerc.length, // diz quantos itens tem na lista
